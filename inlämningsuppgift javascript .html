@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inlämningsuppgift</title>
+</head>
+<body>
+
+    <!--SKAPAR INPUTS,BUTTONS,DIVS-->
+    <div class="container">
+        <form action="" >
+        <p>Name 1</p>
+    <input type="text" placeholder="skriv in ett namn"  id="name1">
+
+        <p>Name 2</p>
+    <input type="text" placeholder="skriv in ett namn"  id="name2">
+
+        <p>Number</p>
+    <input type="number" placeholder="skriv in ett nummer" id="number">
+
+        <p>password</p>
+    <input type="password" placeholder="skriv in ett lösenord"  id="password">
+
+        <p>Check it</p>
+    <input type="checkbox"  id="checkbox">
+
+
+</form>
+<button onclick="clicker();">klicka mig</button>
+    </div>
+    <p id="error"></p>
+
+    <p id="greeting"></p>
+
+    <div id="checkBoxOutput"></div>
+
+
+
+
+    <script>
+        //array för marcus och cihan
+        let names = ['Marcus','Cihan'];
+        //skapar variabler och en function för errorchecks = mata in värde
+       function clicker (){
+
+           let password = document.getElementById ('password').value;
+
+           let name1 = document.getElementById('name1').value;
+           
+           let name2 = document.getElementById('name2').value;
+
+           let number = document.getElementById('number').value;
+
+           let checkbox = document.querySelector('#checkbox') ;
+
+           //if statements för inmatning av värden
+
+           if (name1 == '' || name1 == null){
+               document.getElementById ('error').innerHTML = 'Mata in ett namn';
+               return;
+           } if (name2 == '' || name2 == null){
+               document.getElementById ('error').innerHTML = 'Mata in ett namn';
+               return;}
+           if (password != 'KYH'){
+               document.getElementById ('error').innerHTML = 'Mata in rätt lösenord';
+               return;
+           }
+           //skapar push metod för att mata in inputsen från variablerna och in i arrayen
+           names.push(name1, name2);
+
+          //skapar en foreach loop som hälsningsmeddelanden till arrayen names
+
+          names.forEach((object, index) => {
+          document.getElementById ('greeting').innerHTML = ("<p>'Hej,välkommen'</p>"+ names);
+         });
+               //if statement för checkboxen och loops för number inputen även names arrayen
+            if (checkbox.checked) {
+                let output = '';
+                for (let i = 0; i < number; i++){
+                    for(let j = 0; j < names.length; j++) {
+                        output += "<p> Hej, " + names[j] + "</p>"
+                    }
+                    document.getElementById('checkBoxOutput').innerHTML = output;
+            }
+            
+            }
+
+}
+        
+    
+
+        
+        
+        
+    </script>
+</body>
+</html>
